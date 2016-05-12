@@ -10,20 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-//    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var foodTableVeiw: UITableView!
     
-    var foodItems = NSMutableArray()
-    var foodOtherItems = NSMutableArray()
     var refreshControl: UIRefreshControl?
     let alertController = UIAlertController(title: "Oops！", message: "小當家沒菜了", preferredStyle: .Alert)
     
+    //  model
+    var foodNormalItems = Food().CookName(Food.Cooking.normal)
+    var foodSpecialItems = Food().CookName(Food.Cooking.special)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        foodItems = ["黃金炒飯", "迷魔幻麻婆豆腐", "炒青江菜", "南鮮青椒肉絲", "畢拉夫什錦炒飯", "番茄燴炒飯", "叫化子雞"]
-        foodOtherItems = ["鳳凰水晶", "紅油水餃", "冕頂餃子", "火焰鍋貼", "精神百倍麵"]
         
         // 在 nav bar 左邊加入 edit button
         navigationItem.leftBarButtonItem = editButtonItem()
@@ -44,12 +41,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodItems.count
+        return foodNormalItems.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("FoodCell", forIndexPath: indexPath) as UITableViewCell
-        let item = foodItems[indexPath.row]
+        let item = foodNormalItems[indexPath.row]
         cell.textLabel?.text = item.description
         
         return cell
@@ -59,7 +56,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
-            foodItems.removeObjectAtIndex(indexPath.row)
+            foodNormalItems.removeObjectAtIndex(indexPath.row)
             foodTableVeiw.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -73,19 +70,34 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func refreshFoodItem() {
-        if let rand: Int? = Int(arc4random_uniform(UInt32(foodOtherItems.count))) {
+        if let rand: Int? = Int(arc4random_uniform(UInt32(foodSpecialItems.count))) {
             // 當沒有菜可以增加時，氣到xx彈出來            
-            if (foodOtherItems.count == 0) {
+            if (foodSpecialItems.count == 0) {
                 refreshControl?.endRefreshing()
                 self.presentViewController(alertController, animated: true, completion: nil)
                 return
             } else {
-                foodItems.insertObject(foodOtherItems[rand!], atIndex: 0)
-                foodOtherItems.removeObjectAtIndex(rand!)
+                foodNormalItems.insertObject(foodSpecialItems[rand!], atIndex: 0)
+                foodSpecialItems.removeObjectAtIndex(rand!)
                 foodTableVeiw.reloadData()
                 refreshControl?.endRefreshing()
             }
         }
+    }
+    
+    // 接收從 unwind segue 傳回來的 data
+    @IBAction func unwindFoodView(segue: UIStoryboardSegue) {
+        //  print(segue.identifier)
+        if let unwindID = segue.identifier {
+            if (unwindID == "unwindToViewController") {
+                let unwind = segue.sourceViewController as? FoodDetailsViewController
+                
+                foodNormalItems.insertObject((unwind?.foodTextView.text)!, atIndex: 0)
+                foodTableVeiw.reloadData()
+                
+            }
+        }
+        
     }
 }
 

@@ -12,6 +12,8 @@
 		D254B43B1CD87BDF00E220B2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D254B4391CD87BDF00E220B2 /* Main.storyboard */; };
 		D254B43D1CD87BDF00E220B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D254B43C1CD87BDF00E220B2 /* Assets.xcassets */; };
 		D254B4401CD87BDF00E220B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D254B43E1CD87BDF00E220B2 /* LaunchScreen.storyboard */; };
+		D27E5A9A1CE367FD001AAB77 /* FoodDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27E5A991CE367FD001AAB77 /* FoodDetailsViewController.swift */; };
+		D27E5A9C1CE39474001AAB77 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27E5A9B1CE39474001AAB77 /* Food.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D254B43C1CD87BDF00E220B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D254B43F1CD87BDF00E220B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D254B4411CD87BDF00E220B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D27E5A991CE367FD001AAB77 /* FoodDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FoodDetailsViewController.swift; path = ../FoodDetailsViewController.swift; sourceTree = "<group>"; };
+		D27E5A9B1CE39474001AAB77 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 		D254B4341CD87BDF00E220B2 /* project-basic-table-view */ = {
 			isa = PBXGroup;
 			children = (
+				D27E5A991CE367FD001AAB77 /* FoodDetailsViewController.swift */,
+				D27E5A9B1CE39474001AAB77 /* Food.swift */,
 				D254B4371CD87BDF00E220B2 /* ViewController.swift */,
 				D254B4391CD87BDF00E220B2 /* Main.storyboard */,
 				D254B4471CD87C0E00E220B2 /* Supporting Files */,
@@ -144,7 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D254B4381CD87BDF00E220B2 /* ViewController.swift in Sources */,
+				D27E5A9C1CE39474001AAB77 /* Food.swift in Sources */,
 				D254B4361CD87BDF00E220B2 /* AppDelegate.swift in Sources */,
+				D27E5A9A1CE367FD001AAB77 /* FoodDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +304,7 @@
 				D254B4461CD87BDF00E220B2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
