@@ -8,19 +8,27 @@
 
 import UIKit
 
+protocol FoodDetailsViewDelegate {
+    func setCook(cookName: String)
+}
+
 class FoodDetailsViewController: UIViewController, UITextViewDelegate {
     
     var data: String = ""
+    var dataFormViewController: String = ""
+    var delegate: FoodDetailsViewDelegate! = nil
     @IBOutlet weak var foodTextView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-//        改變 return key type
+        // 改變 return key type
         foodTextView.returnKeyType = .Done
         foodTextView.delegate = self
         // Do any additional setup after loading the view.
+        
+        //  接收 preparesegue
+        foodTextView.text = dataFormViewController
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,6 +54,13 @@ class FoodDetailsViewController: UIViewController, UITextViewDelegate {
         
     }
     
+    @IBAction func returnSegue(sender: UIButton) {
+        if let title = sender.currentTitle {
+            print(title)
+            delegate.setCook(title)
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+    }
     
     /*
     // MARK: - Navigation

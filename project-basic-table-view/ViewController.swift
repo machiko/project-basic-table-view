@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, FoodDetailsViewDelegate {
 
     @IBOutlet weak var foodTableVeiw: UITableView!
     
@@ -91,7 +91,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if let unwindID = segue.identifier {
             if (unwindID == "unwindToViewController") {
                 let unwind = segue.sourceViewController as? FoodDetailsViewController
-                
                 foodNormalItems.insertObject((unwind?.foodTextView.text)!, atIndex: 0)
                 foodTableVeiw.reloadData()
                 
@@ -99,5 +98,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         
     }
+    
+    // 傳資料進 FoodDetailViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(segue.identifier)
+        if (segue.identifier == "viewControllerSegue") {
+            let destination = segue.destinationViewController as! FoodDetailsViewController
+            destination.delegate = self
+            
+            destination.dataFormViewController = "誠實棒棒糖"
+            
+        }
+    }
+    
+    // Called from the destination controller via delegation
+    func setCook(cookName: String) {
+        foodNormalItems.insertObject(cookName, atIndex: 0)
+        foodTableVeiw.reloadData()
+    }
+    
 }
 

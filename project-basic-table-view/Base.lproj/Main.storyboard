@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--中華一番-->
@@ -77,18 +79,71 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0xH-9S-dvt">
+                                <rect key="frame" x="20" y="176" width="560" height="248"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g9O-Sr-t2j">
+                                        <rect key="frame" x="250" y="106" width="60" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="貓耳朵"/>
+                                        <connections>
+                                            <action selector="returnSegue:" destination="LnO-iD-31e" eventType="touchUpInside" id="SWM-gD-MyX"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ME0-Mz-jkm">
+                                        <rect key="frame" x="70" y="106" width="60" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="龍鬚麵"/>
+                                        <connections>
+                                            <action selector="returnSegue:" destination="LnO-iD-31e" eventType="touchUpInside" id="IoJ-b1-dPH"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6a-Mf-Boj">
+                                        <rect key="frame" x="430" y="106" width="60" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <state key="normal" title="肉包子"/>
+                                        <connections>
+                                            <action selector="returnSegue:" destination="LnO-iD-31e" eventType="touchUpInside" id="Ix0-fH-owW"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現點現做" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hV9-Lt-Z4l">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="62"/>
+                                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="g9O-Sr-t2j" firstAttribute="centerY" secondItem="0xH-9S-dvt" secondAttribute="centerY" id="1ym-rr-L93"/>
+                                    <constraint firstItem="hV9-Lt-Z4l" firstAttribute="top" secondItem="0xH-9S-dvt" secondAttribute="top" id="4Sp-h2-Kxv"/>
+                                    <constraint firstItem="c6a-Mf-Boj" firstAttribute="baseline" secondItem="g9O-Sr-t2j" secondAttribute="baseline" id="63v-eJ-tw2"/>
+                                    <constraint firstItem="hV9-Lt-Z4l" firstAttribute="centerX" secondItem="g9O-Sr-t2j" secondAttribute="centerX" id="A6E-FJ-IDH"/>
+                                    <constraint firstItem="ME0-Mz-jkm" firstAttribute="baseline" secondItem="g9O-Sr-t2j" secondAttribute="baseline" id="KTD-9M-9aU"/>
+                                    <constraint firstItem="hV9-Lt-Z4l" firstAttribute="height" secondItem="0xH-9S-dvt" secondAttribute="height" multiplier="0.25" id="PvH-U2-LZo"/>
+                                    <constraint firstItem="hV9-Lt-Z4l" firstAttribute="width" secondItem="0xH-9S-dvt" secondAttribute="width" id="Saw-z6-Fph"/>
+                                    <constraint firstItem="g9O-Sr-t2j" firstAttribute="centerX" secondItem="0xH-9S-dvt" secondAttribute="centerX" id="ZhB-xy-6C0"/>
+                                    <constraint firstItem="c6a-Mf-Boj" firstAttribute="right" secondItem="g9O-Sr-t2j" secondAttribute="centerXWithinMargins" multiplier="1.75:1" id="nLS-e1-hG3"/>
+                                    <constraint firstItem="ME0-Mz-jkm" firstAttribute="left" secondItem="0xH-9S-dvt" secondAttribute="centerXWithinMargins" multiplier="1:4" id="pQB-DO-lkz"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GgG-9D-o2y" firstAttribute="top" secondItem="O2d-eF-eA6" secondAttribute="top" id="4c0-HK-Hbh"/>
-                            <constraint firstItem="GgG-9D-o2y" firstAttribute="leading" secondItem="O2d-eF-eA6" secondAttribute="leading" id="Bnk-yo-Wai"/>
-                            <constraint firstItem="GgG-9D-o2y" firstAttribute="bottom" secondItem="4sp-jP-anZ" secondAttribute="top" id="Q03-wm-nKL"/>
-                            <constraint firstAttribute="trailing" secondItem="GgG-9D-o2y" secondAttribute="trailing" id="bvS-jW-lSn"/>
+                            <constraint firstItem="0xH-9S-dvt" firstAttribute="trailing" secondItem="O2d-eF-eA6" secondAttribute="trailingMargin" id="MS3-fG-Ruc"/>
+                            <constraint firstItem="0xH-9S-dvt" firstAttribute="top" secondItem="9Ib-4t-bWp" secondAttribute="bottom" constant="112" id="O7D-9l-r8M"/>
+                            <constraint firstItem="GgG-9D-o2y" firstAttribute="bottom" secondItem="4sp-jP-anZ" secondAttribute="top" id="Z5h-Ie-n4T"/>
+                            <constraint firstItem="0xH-9S-dvt" firstAttribute="centerY" secondItem="O2d-eF-eA6" secondAttribute="centerY" id="bHj-T2-52x"/>
+                            <constraint firstItem="GgG-9D-o2y" firstAttribute="leading" secondItem="O2d-eF-eA6" secondAttribute="leading" id="cEP-ya-QM8"/>
+                            <constraint firstItem="0xH-9S-dvt" firstAttribute="leading" secondItem="O2d-eF-eA6" secondAttribute="leadingMargin" id="g8L-HL-noM"/>
+                            <constraint firstItem="0xH-9S-dvt" firstAttribute="centerX" secondItem="GgG-9D-o2y" secondAttribute="centerX" id="sXD-sQ-BU2"/>
+                            <constraint firstItem="0xH-9S-dvt" firstAttribute="centerY" secondItem="GgG-9D-o2y" secondAttribute="centerY" id="x44-ED-NvG"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="foodTextView" destination="GgG-9D-o2y" id="SKK-fo-6jz"/>
-                        <segue destination="IdQ-Oe-hgq" kind="unwind" identifier="unwindToViewController" unwindAction="unwindFoodView:" id="m1X-Jk-3dr"/>
+                        <segue destination="IdQ-Oe-hgq" kind="unwind" identifier="unwindToViewController" unwindAction="unwindFoodView:" id="02S-xb-2eo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKN-WB-lV4" userLabel="First Responder" sceneMemberID="firstResponder"/>
